@@ -9,7 +9,7 @@ pipeline {
         archiveArtifacts 'build/docs/javadoc/**'
         archiveArtifacts 'build/libs/**'
         bat 'gradle test'
-        junit 'build/test-result/test/*.xml'
+        junit 'build/test-result/test/TEST-com.test.MatrixMathematicsTest.xml'
       }
     }
 
