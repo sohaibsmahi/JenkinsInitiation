@@ -11,5 +11,11 @@ pipeline {
       }
     }
 
+    stage('Mail Notification') {
+      steps {
+        mail(subject: 'Push Github', body: 'Your project have been pushed to the github repo', to: 'gn_farah@esi.dz')
+      }
+    }
+
   }
 }
