@@ -22,7 +22,7 @@ pipeline {
         stage('Code Analysis') {
           steps {
             withSonarQubeEnv('sonar') {
-              bat 'sonar-scanner'
+              bat(script: 'gradle sonarqube', returnStatus: true, returnStdout: true)
               waitForQualityGate true
             }
 
