@@ -39,12 +39,18 @@ pipeline {
     }
 
     stage('Deployment') {
+      when{
+        branch 'master'
+      }
       steps {
         bat 'gradle publish'
       }
     }
 
     stage('Slack Notification') {
+      when{
+        branch 'master'
+      }
       steps {
         slackSend(token: 'TRQRD8P16/BSUHJ98P3/H1NKPYpNTdZqAakXQkSCwYFo', teamDomain: 'tpgradleworkspace', baseUrl: 'https://hooks.slack.com/services/', message: 'Your project have been pushed to the github repo', channel: '#general')
       }
